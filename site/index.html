@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Decision Atlas</title>
+<meta name="description" content="An interactive AI Fundamentals book by Miras Yessenaly. A campus delivery robot meets eleven AI problems, with worked examples and fifteen live labs.">
+<meta name="theme-color" content="#f3f6fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16336b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/book.css">
+<script>document.documentElement.classList.add("js");var t=new URLSearchParams(location.search).get("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;if(new URLSearchParams(location.search).has("print"))document.documentElement.classList.add("print-all");</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the book</a>
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">The Decision Atlas</a>
+    <nav aria-label="Book sections">
+      <a href="#contents">Contents</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <span class="sheetno num" id="sheetno" aria-live="polite">Cover</span>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="view cover-view" id="top" aria-labelledby="title" data-sheet="Cover">
+  <div class="cover wrap">
+    <div>
+      <h1 id="title">The Decision Atlas</h1>
+      <p class="lede">One campus robot, eleven AI problems, every number worked by hand.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="#intro">Start reading</a>
+        <a class="btn" href="#contents">See all chapters</a>
+      </div>
+      <dl class="titleblock">
+        <div><dt>Author</dt><dd>Miras Yessenaly</dd></div>
+        <div><dt>Submission</dt><dd>Individual</dd></div>
+        <div><dt>Course</dt><dd>AI Fundamentals</dd></div>
+        <div><dt>Edition</dt><dd class="num">2026</dd></div>
+      </dl>
+    </div>
+    <figure class="fig drawing map" id="map">
+      <svg viewBox="0 0 640 430" role="group" aria-labelledby="map-title map-desc">
+        <title id="map-title">TALA's campus, drawn as the book's contents</title>
+        <desc id="map-desc">Eleven numbered stops on a route across a fictional campus. Each stop opens a chapter.</desc>
+        <rect class="bld" x="30" y="30" width="170" height="100"/><text x="42" y="54">Library</text>
+        <rect class="bld" x="30" y="290" width="120" height="100"/><text x="42" y="314">Robot dock</text>
+        <rect class="bld" x="225" y="30" width="130" height="85"/><text x="237" y="54">Mail room</text>
+        <path class="ln" d="M384 30 V140 M416 30 V140"/><text x="346" y="162" class="t-muted">Narrow passage</text>
+        <rect class="bld" x="445" y="30" width="165" height="90"/><text x="457" y="54">Charging bay</text>
+        <rect class="bld" x="430" y="180" width="180" height="90"/><text x="442" y="204">Workshop</text>
+        <rect class="bld" x="215" y="180" width="170" height="90"/><text x="227" y="204">Message desk</text>
+        <rect class="bld" x="175" y="310" width="150" height="80"/><text x="187" y="334">Loading bay</text>
+        <rect class="bld" x="355" y="310" width="255" height="80"/><text x="367" y="334">Main hall</text>
+        <polyline class="dash" points="85,355 115,95 290,85 400,105 535,85 475,235 560,235 295,240 345,240 245,360 470,360"/>
+        <polyline class="ln-heavy route-done" points="85,355 115,95" id="route-done"/>
+        <a href="#ch-01" aria-label="Chapter 1, Agents and environments"><rect class="stop" x="70" y="340" width="30" height="30"/><text class="t-mono" x="76" y="360">01</text></a>
+        <a href="#ch-02" aria-label="Chapter 2, Search"><rect class="stop" x="100" y="80" width="30" height="30"/><text class="t-mono" x="106" y="100">02</text></a>
+        <a href="#ch-03" aria-label="Chapter 3, Local optimization"><rect class="stop" x="275" y="70" width="30" height="30"/><text class="t-mono" x="281" y="90">03</text></a>
+        <a href="#ch-04" aria-label="Chapter 4, Adversarial search"><rect class="stop" x="385" y="90" width="30" height="30"/><text class="t-mono" x="391" y="110">04</text></a>
+        <a href="#ch-05" aria-label="Chapter 5, MDP and reinforcement learning"><rect class="stop" x="520" y="70" width="30" height="30"/><text class="t-mono" x="526" y="90">05</text></a>
+        <a href="#ch-06" aria-label="Chapter 6, Probability and Bayesian networks"><rect class="stop" x="460" y="220" width="30" height="30"/><text class="t-mono" x="466" y="240">06</text></a>
+        <a href="#ch-07" aria-label="Chapter 7, Hidden Markov models"><rect class="stop" x="545" y="220" width="30" height="30"/><text class="t-mono" x="551" y="240">07</text></a>
+        <a href="#ch-08" aria-label="Chapter 8, Rational decisions"><rect class="stop" x="280" y="225" width="30" height="30"/><text class="t-mono" x="286" y="245">08</text></a>
+        <a href="#ch-09" aria-label="Chapter 9, Classical machine learning"><rect class="stop" x="330" y="225" width="30" height="30"/><text class="t-mono" x="336" y="245">09</text></a>
+        <a href="#ch-10" aria-label="Chapter 10, Neural networks"><rect class="stop" x="230" y="345" width="30" height="30"/><text class="t-mono" x="236" y="365">10</text></a>
+        <a href="#ch-11" aria-label="Chapter 11, AI in Kazakhstan and society"><rect class="stop" x="455" y="345" width="30" height="30"/><text class="t-mono" x="461" y="365">11</text></a>
+      </svg>
+      <figcaption>The campus is the contents page. Each stop is a chapter; the solid line marks the chapters you have opened.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap contents" id="contents">
+    <h2>Contents</h2>
+    <ol class="register-list">
+      <li><a href="#intro"><span class="num">00</span><span>A machine has a delivery to make</span><span class="where">How to read</span></a></li>
+      <li><a href="#ch-01"><span class="num">01</span><span>Agents and environments</span><span class="where">Robot dock</span></a></li>
+      <li><a href="#ch-02"><span class="num">02</span><span>Search and heuristics</span><span class="where">Library</span></a></li>
+      <li><a href="#ch-03"><span class="num">03</span><span>Local optimization</span><span class="where">Mail room</span></a></li>
+      <li><a href="#ch-04"><span class="num">04</span><span>Adversarial search</span><span class="where">Narrow passage</span></a></li>
+      <li><a href="#ch-05"><span class="num">05</span><span>MDP and reinforcement learning</span><span class="where">Charging bay</span></a></li>
+      <li><a href="#ch-06"><span class="num">06</span><span>Probability and Bayesian networks</span><span class="where">Workshop</span></a></li>
+      <li><a href="#ch-07"><span class="num">07</span><span>Hidden Markov models</span><span class="where">Workshop</span></a></li>
+      <li><a href="#ch-08"><span class="num">08</span><span>Rational decisions</span><span class="where">Message desk</span></a></li>
+      <li><a href="#ch-09"><span class="num">09</span><span>Classical machine learning</span><span class="where">Message desk</span></a></li>
+      <li><a href="#ch-10"><span class="num">10</span><span>Neural networks</span><span class="where">Loading bay</span></a></li>
+      <li><a href="#ch-11"><span class="num">11</span><span>AI in Kazakhstan and society</span><span class="where">Main hall</span></a></li>
+      <li><a href="#glossary"><span class="num">G</span><span>Glossary</span><span class="where">Reference</span></a></li>
+      <li><a href="#sources"><span class="num">S</span><span>Sources</span><span class="where">Reference</span></a></li>
+      <li><a href="#disclosure"><span class="num">D</span><span>AI-use disclosure</span><span class="where">Reference</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="view sheet" id="intro" aria-labelledby="intro-title" data-sheet="Introduction">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">00</dd></div>
+      <div><dt>TALA's problem</dt><dd>Deliver a book across campus</dd></div>
+      <div><dt>In this sheet</dt><dd>How the book works</dd></div>
+    </dl>
+    <h2 id="intro-title">A machine has a delivery to make</h2>
+    <div class="prose">
+      <p>A book is waiting in a campus library. Its reader is on the other side of a courtyard. Between them are a blocked walkway, an unreliable sensor, a low battery and a stream of decisions.</p>
+      <p>This is the world of <span class="term">TALA</span>, a fictional delivery robot used throughout this book. TALA is not a real product or a measured experiment. It is a small case study: simple enough to calculate by hand, and rich enough to show what AI algorithms actually do.</p>
+      <p>At first TALA only needs a route. Then it must improve a schedule, anticipate another robot, act under uncertainty, learn from experience, recognize a pattern and explain its decisions. The same campus becomes eleven different mathematical problems.</p>
+      <h3>How to read this atlas</h3>
+      <p>Each chapter starts with TALA's problem, introduces the vocabulary, works through an example and says where the method stops being reliable. Each lab, called a plate, starts at the worked example from the text. Change an input and watch the calculation change. The Reset button always returns to the worked example.</p>
+      <p>The notation is compact. A state is written <var>s</var>, an action <var>a</var>, a probability <var>P</var>, and a learned parameter <var>w</var> or <var>θ</var>. Every formula comes with a table that explains each symbol. You do not need programming experience to follow the examples.</p>
+      <p>Every example uses invented teaching data. Claims about real systems and real law are kept separate and cite their sources.</p>
+    </div>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-01" aria-labelledby="ch-01-title" data-sheet="Sheet 01 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">01</dd></div>
+      <div><dt>TALA's problem</dt><dd>Know what a good delivery is</dd></div>
+      <div><dt>Ideas</dt><dd>PEAS, environment types, agent types</dd></div>
+    </dl>
+    <h2 id="ch-01-title">First, define the job</h2>
+    <div class="prose">
+      <p>TALA can move perfectly and still fail its assignment. If it delivers the wrong book quickly, speed was the wrong definition of success.</p>
+      <p><span class="term">Artificial intelligence</span> studies computational systems that perceive, reason, learn or act toward objectives. An <span class="term">agent</span> receives observations through sensors and changes its environment through actuators. A <span class="term">rational agent</span> chooses the action expected to perform best, given its evidence, its available actions and its performance measure. Rational does not mean all-knowing: a good decision can still have a bad outcome when the world is uncertain.</p>
+      <h3>Write the task before the code</h3>
+      <p>The PEAS description separates four questions that are easy to mix up.</p>
+    </div>
+    <table class="register table-wide">
+      <caption>PEAS description of TALA's delivery task</caption>
+      <thead><tr><th scope="col">Element</th><th scope="col">TALA's delivery task</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Performance</th><td>Correct delivery, low delay, low energy use, no collisions</td></tr>
+        <tr><th scope="row">Environment</th><td>Library, corridors, courtyard, people and doors</td></tr>
+        <tr><th scope="row">Actuators</th><td>Wheels, brakes, display and delivery compartment</td></tr>
+        <tr><th scope="row">Sensors</th><td>Camera, distance sensors, wheel encoders and battery meter</td></tr>
+      </tbody>
+    </table>
+    <div class="prose">
+      <p>A performance measure judges what actually happened. It is not always the same as a convenient internal reward. Rewarding TALA only for distance travelled could teach it to circle the courtyard forever. The measure must describe the job, not an easy-to-count substitute.</p>
+      <h3>What kind of world is this?</h3>
+      <p>An environment is <span class="term">fully observable</span> when the current observation contains everything needed for the decision, and <span class="term">partially observable</span> when important information is hidden. It is <span class="term">deterministic</span> when a state and an action fix the next state, and <span class="term">stochastic</span> when outcomes have probabilities. A delivery task is <span class="term">sequential</span> because a choice now changes later options. It is <span class="term">dynamic</span> if the world changes while the agent thinks.</p>
+      <p>The campus is partially observable, stochastic, sequential, dynamic and multi-agent. Positions are continuous, although a map can divide them into a finite set of places. Known and unknown describe whether the agent has the world's rules; a known model can still describe a random world.</p>
+    </div>
+    <table class="register table-wide">
+      <caption>Five agent designs, each in one line</caption>
+      <thead><tr><th scope="col">Agent type</th><th scope="col">How it chooses</th><th scope="col">TALA example</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Simple reflex</th><td>A condition and action rule</td><td>Obstacle close, so brake.</td></tr>
+        <tr><th scope="row">Model-based reflex</th><td>Rules plus an internal state</td><td>The obstacle vanished, but the door is probably still busy.</td></tr>
+        <tr><th scope="row">Goal-based</th><td>Compares futures against a goal</td><td>Which route reaches the reader?</td></tr>
+        <tr><th scope="row">Utility-based</th><td>Compares how good outcomes are</td><td>Which route balances delay and battery best?</td></tr>
+        <tr><th scope="row">Learning</th><td>Improves its own behaviour from feedback</td><td>A critic scores each delivery; the learning element adjusts the rules.</td></tr>
+      </tbody>
+    </table>
+    <div class="prose">
+      <p>A learning agent has a performance element that acts, a learning element that improves it, a critic that scores experience and a problem generator that suggests useful exploration. These roles can sit inside a goal-based or utility-based agent; they are not exclusive boxes.</p>
+      <p>AI, machine learning and deep learning are nested ideas. Machine learning estimates patterns from data. Deep learning uses neural networks with many learned layers. Search, logic and hand-written planning rules are AI without being learned from data.</p>
+    </div>
+    <div class="quizset" role="group" aria-labelledby="quiz-1">
+      <div class="quizset-head"><h3 id="quiz-1">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 1 of 2</p><p class="q">TALA takes the route with the lowest expected delay, but an unexpected closure makes it late. Was the decision irrational?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Yes, because the outcome was bad.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Not necessarily. Judge the decision by the information it had.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Yes, a rational agent knows every closure.</span></button></div><p class="why"><span class="why-label">Answer B.</span> Judge the decision by what was known when it was made, and the outcome separately. If closures were foreseeable and the model left them out, the model needs work.</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 2 of 2</p><p class="q">TALA is rewarded for every metre it drives. What is the most likely problem?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">It will drive too slowly.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">It will refuse to move.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">It can earn reward without delivering anything.</span></button></div><p class="why"><span class="why-label">Answer C.</span> Distance is an easy substitute for the real job. Circling the courtyard maximizes it. The performance measure must describe correct, timely, safe delivery.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>A clever algorithm cannot repair an undefined objective. Specify the agent, the evidence and the measure of success first.</p></div>
+    <p class="cite">Course: L11, slides 2 to 40. Further reading: Russell and Norvig, <cite>Artificial Intelligence: A Modern Approach</cite>, chapters 1 and 2 <a href="#r1">[R1]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-02" aria-labelledby="ch-02-title" data-sheet="Sheet 02 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">02</dd></div>
+      <div><dt>TALA's problem</dt><dd>Reach the reader by the cheapest route</dd></div>
+      <div><dt>Methods</dt><dd>BFS, DFS, UCS, A*</dd></div>
+    </dl>
+    <h2 id="ch-02-title">A route is a sequence of choices</h2>
+    <div class="prose">
+      <p>The library door closes behind TALA. The reader is across the courtyard, and the robot must choose a sequence of corridors. This is a <span class="term">search problem</span>: states, actions, a transition model, an initial state, a goal test and a path cost.</p>
+      <p>A <span class="term">state</span> describes the world at one moment. A search <span class="term">node</span> also records how the search got there: its parent, action and cost so far. The <span class="term">frontier</span> holds nodes found but not yet expanded. A set of reached states stops the search from repeating itself.</p>
+    </div>
+    <table class="register table-wide">
+      <caption>Four frontiers, four behaviours</caption>
+      <thead><tr><th scope="col">Method</th><th scope="col">Next node taken</th><th scope="col">Guarantee under the usual assumptions</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Breadth-first, BFS</th><td>Shallowest; a FIFO queue</td><td>Fewest edges; complete with finite branching</td></tr>
+        <tr><th scope="row">Depth-first, DFS</th><td>Deepest; a stack</td><td>Low memory; not optimal; can follow an infinite branch</td></tr>
+        <tr><th scope="row">Uniform-cost, UCS</th><td>Lowest path cost g(n)</td><td>Cheapest route when all costs are positive</td></tr>
+        <tr><th scope="row">A*</th><td>Lowest f(n) = g(n) + h(n)</td><td>Cheapest route with an admissible heuristic and correct repeated-state handling</td></tr>
+      </tbody>
+    </table>
+    <div class="prose">
+      <p>With branching factor <var>b</var> and goal depth <var>d</var>, BFS can store about <var>b</var><sup><var>d</var></sup> nodes. DFS stores only one path and its siblings. Iterative deepening repeats depth-limited DFS with growing limits, so it finds shallow goals like BFS with memory like DFS.</p>
+      <h3>A map small enough to check by hand</h3>
+      <p>The teaching graph has directed roads S to A costing 2, S to B costing 1, A to G costing 7, B to C costing 2 and C to G costing 2. The route through A has fewer edges but costs 9. The route through B and C costs 5. BFS finds S, A, G when A is listed before B. UCS and A* find S, B, C, G.</p>
+    </div>
+    <div class="formula" role="group" aria-label="A star evaluation function">
+      <p class="eq">f(n) = g(n) + h(n)</p>
+      <dl>
+        <dt>n</dt><dd>a node: one place TALA could stand, reached by one particular route</dd>
+        <dt>g(n)</dt><dd>the cost already paid from the start S to n</dd>
+        <dt>h(n)</dt><dd>the heuristic: an estimate of the cost still needed from n to the goal G</dd>
+        <dt>f(n)</dt><dd>the estimated total cost of the cheapest route through n</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>A heuristic is <span class="term">admissible</span> if it never overestimates the true remaining cost. It is <span class="term">consistent</span> if h(n) ≤ c(n, n′) + h(n′) for every edge from n to n′, where c is the edge cost. Here h(S) = 4, h(A) = 6, h(B) = 3, h(C) = 1 and h(G) = 0, which is consistent.</p>
+      <p>After expanding S, A has f = 2 + 6 = 8 and B has f = 1 + 3 = 4. A* expands B, then C with f = 3 + 1 = 4, then G with f = 5. The route costs 5 and A is never expanded. With h = 0 everywhere, A* becomes UCS. Greedy best-first search uses h alone and ignores the cost already paid.</p>
+      <p>Test for the goal when a node leaves the priority queue, not when it is first generated. A costly route to G can be found before the cheap one is ready.</p>
+    </div>
+    <section class="plate" id="plate-2-1" aria-labelledby="plate-2-1-title">
+      <div class="plate-head"><h3 id="plate-2-1-title">Lab: four searches on one map</h3><span class="plateno">Plate 2.1</span></div>
+      <div class="lab" data-lab="search"><p class="nojs">Open this page with JavaScript on to step through BFS, DFS, UCS and A*. Worked result: A* expands S, B, C, G with f values 4, 4, 4, 5 and returns cost 5.</p></div>
+      <p class="notice"><b>What to notice.</b> BFS returns cost 9 because it counts edges. UCS and A* both return cost 5, but A* never expands A.</p>
+    </section>
+    <div class="quizset" role="group" aria-labelledby="quiz-2">
+      <div class="quizset-head"><h3 id="quiz-2">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 1 of 2</p><p class="q">Why does BFS return cost 9 on this map while UCS returns cost 5?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">BFS has a bug with weighted edges.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">BFS minimizes the number of edges, not the total cost.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">UCS uses a heuristic.</span></button></div><p class="why"><span class="why-label">Answer B.</span> The expensive route has two edges, the cheap one three. BFS and UCS agree only when every edge costs the same.</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 2 of 2</p><p class="q">If h(B) were changed to 10, would the heuristic still be admissible?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">No. The true cost from B to G is 4, and 10 overestimates it.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Yes. Any positive number is admissible.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Yes, because h(G) is still 0.</span></button></div><p class="why"><span class="why-label">Answer A.</span> Admissible means h(n) is at most the true cheapest remaining cost. From B that cost is 2 + 2 = 4.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>There is no universal best search. The cost model, the memory available and the quality of the heuristic decide.</p></div>
+    <p class="cite">Course: L06, pages 3 to 30. Further reading: Berkeley CS188 informed search <a href="#r2">[R2]</a>. The map is an original, checked example.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-03" aria-labelledby="ch-03-title" data-sheet="Sheet 03 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">03</dd></div>
+      <div><dt>TALA's problem</dt><dd>Find a good delivery schedule</dd></div>
+      <div><dt>Methods</dt><dd>Hill climbing, annealing, beam search, genetic algorithms, gradient descent</dd></div>
+    </dl>
+    <h2 id="ch-03-title">Sometimes the destination is the solution</h2>
+    <div class="prose">
+      <p>TALA now has six deliveries and one charging stop. We want a good schedule, not a record of every edit used to build it. <span class="term">Local search</span> moves between candidate configurations and keeps very little history.</p>
+      <p>An <span class="term">objective function</span> scores a candidate, for example total travel time. A <span class="term">neighbour</span> is a small change, such as swapping two stops. If the allowed changes are too small, a better schedule may be out of reach.</p>
+      <h3>Climbing is easy. Knowing when to stop is hard.</h3>
+      <p><span class="term">Hill climbing</span> moves to a better neighbour until none is better. That point may be a <span class="term">local optimum</span>, better than its neighbours, rather than the <span class="term">global optimum</span>, better than everything. A plateau is a flat region; a ridge needs a coordinated move. Random restarts try several starting points.</p>
+      <p>Our landscape has scores 1, 3, 6, 5, 4, 7, 9, 8, 6 at positions 0 to 8. From position 1, hill climbing reaches position 2 with score 6 and stops. Reaching the 9 at position 6 means going downhill first.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-3-1-title">
+      <div class="plate-head"><h3 id="plate-3-1-title">Lab: hill climbing on a landscape</h3><span class="plateno">Plate 3.1</span></div>
+      <div class="lab" data-lab="hill"><p class="nojs">Worked result: starting at position 1, the climber moves to position 2 (score 6) and stops.</p></div>
+      <p class="notice"><b>What to notice.</b> Start at 4 or 5 and the same rule finds the 9. The answer depends on where you begin.</p>
+    </section>
+    <div class="formula" role="group" aria-label="Simulated annealing acceptance probability">
+      <p class="eq">P(accept) = exp(−ΔE / T)</p>
+      <dl>
+        <dt>ΔE</dt><dd>how much worse the new candidate is: E(new) − E(current), for a problem we minimize</dd>
+        <dt>T</dt><dd>the temperature: high early, so bad moves are often accepted; low later, so they rarely are</dd>
+        <dt>exp</dt><dd>the exponential function; the result is a probability between 0 and 1</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p><span class="term">Simulated annealing</span> sometimes accepts a worse move to escape a trap. An improving move (ΔE ≤ 0) is always accepted. A move that is worse by 2 is accepted with probability exp(−2/5) ≈ 0.670 at T = 5, but only exp(−2/0.5) ≈ 0.018 at T = 0.5. Guarantees of finding the global optimum need very slow cooling, not a short run.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-3-2-title">
+      <div class="plate-head"><h3 id="plate-3-2-title">Lab: annealing with a temperature dial</h3><span class="plateno">Plate 3.2</span></div>
+      <div class="lab" data-lab="anneal"><p class="nojs">Worked result: ΔE = 2 at T = 5 gives acceptance probability 0.670.</p></div>
+      <p class="notice"><b>What to notice.</b> Lower the temperature and watch the acceptance probability collapse. The run with cooling escapes position 2 and finds the 9.</p>
+    </section>
+    <div class="prose">
+      <h3>A population can explore several places</h3>
+      <p><span class="term">Local beam search</span> keeps k states, generates all their successors and keeps the k best. Unlike independent restarts, the candidates compete in one pool, so without some randomness the pool can collapse into near copies.</p>
+      <p>A <span class="term">genetic algorithm</span> keeps a population of chromosomes, scores their fitness, selects parents, combines them with crossover and adds random mutation. For a delivery order the chromosome is a permutation, so plain one-point crossover can duplicate stops. The operator must keep the permutation valid.</p>
+      <h3>Continuous improvement</h3>
+    </div>
+    <div class="formula" role="group" aria-label="Gradient descent update">
+      <p class="eq">w ← w − η ∇L(w)</p>
+      <dl>
+        <dt>w</dt><dd>the parameter being adjusted</dd>
+        <dt>L(w)</dt><dd>the loss: a number we want to make small</dd>
+        <dt>∇L(w)</dt><dd>the gradient: the direction of steepest increase of L at w</dd>
+        <dt>η</dt><dd>the learning rate: how big each step is</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>Take L(w) = (w − 3)², whose gradient is 2(w − 3), starting at w = 0. With η = 0.1, w goes 0.6, 1.08, 1.464 and creeps toward 3. With η = 0.9 it jumps to 5.4, then 1.08, overshooting each time but settling. With η = 1 it bounces between 0 and 6 forever. With η = 1.1 it moves further away on every step: it diverges. A zero gradient can also be a saddle point, not a minimum.</p>
+      <p>A <span class="term">constraint satisfaction problem</span> needs variables that satisfy constraints, such as room schedules or N-queens. The min-conflicts heuristic moves a conflicted variable to the value with the fewest violations.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-3-3-title">
+      <div class="plate-head"><h3 id="plate-3-3-title">Lab: gradient descent and the learning rate</h3><span class="plateno">Plate 3.3</span></div>
+      <div class="lab" data-lab="gd"><p class="nojs">Worked result: η = 0.1 from w = 0 gives 0.6, 1.08, 1.464.</p></div>
+      <p class="notice"><b>What to notice.</b> Above η = 1 the steps grow instead of shrinking. Too large a learning rate is not faster; it fails.</p>
+    </section>
+    <div class="quizset" role="group" aria-labelledby="quiz-3">
+      <div class="quizset-head"><h3 id="quiz-3">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 1 of 2</p><p class="q">A local-search run stops at score 6. What would prove that 6 is the global maximum?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">The search stopped, so it must be.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Running it again from the same start.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">An exhaustive comparison or a proven upper bound of 6.</span></button></div><p class="why"><span class="why-label">Answer C.</span> Stopping only shows that no allowed neighbour was better. Our landscape has a 9 elsewhere.</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 2 of 2</p><p class="q">With ΔE = 2, what is the acceptance probability at T = 5?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">About 0.670</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">About 0.018</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Exactly 0.4</span></button></div><p class="why"><span class="why-label">Answer A.</span> exp(−2/5) = exp(−0.4) ≈ 0.670. The 0.018 belongs to T = 0.5.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>The objective, the representation and the neighbourhood matter as much as the search rule.</p></div>
+    <p class="cite">Course: L05, pages 1 to 113. Further reading: AIMA local search <a href="#r1">[R1]</a> and Berkeley CS188 local search <a href="#r3">[R3]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-04" aria-labelledby="ch-04-title" data-sheet="Sheet 04 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">04</dd></div>
+      <div><dt>TALA's problem</dt><dd>Share a narrow passage with another robot</dd></div>
+      <div><dt>Methods</dt><dd>Minimax, alpha-beta pruning, expectimax</dd></div>
+    </dl>
+    <h2 id="ch-04-title">Another agent gets a turn</h2>
+    <div class="prose">
+      <p>At a narrow passage, TALA cannot choose both its own move and the other robot's response. <span class="term">Adversarial search</span> plans when another agent's choice changes the outcome.</p>
+      <p>A game has states, players, legal actions, transitions, terminal states and terminal utilities. In a two-player <span class="term">zero-sum</span> game, one player's gain is the other's loss. The maximizing player is MAX and the opponent is MIN. Zero-sum is an assumption, not a fact about every interaction.</p>
+      <h3>Minimax works backward</h3>
+      <p>Write each leaf's utility for MAX. A MIN node takes the smallest child value; a MAX node takes the largest. Under action A, MIN can produce 3 or 5. Under B, 2 or 9. MIN picks 3 under A and 2 under B, so MAX picks A: max(min(3, 5), min(2, 9)) = max(3, 2) = 3. The 9 under B does not matter if the opponent can prevent it.</p>
+      <h3>Skip a branch that cannot matter</h3>
+      <p><span class="term">Alpha-beta pruning</span> gives the same answer as minimax with less work. α is the best value MAX can already guarantee; β is the best value MIN can guarantee. Prune when α ≥ β. After A, α = 3. Under B the first leaf is 2, so β = 2 ≤ α, and B's second leaf is skipped. Good move ordering can cut the work from O(b<sup>m</sup>) toward O(b<sup>m/2</sup>), where m is the depth.</p>
+      <p>When the tree is too deep, search stops at a depth limit and an <span class="term">evaluation function</span> estimates the position. The <span class="term">horizon effect</span> pushes a disaster just past the cutoff. Quiescence search looks further in unstable positions.</p>
+      <h3>Chance is not an opponent</h3>
+      <p>If a turn is decided by chance, use a <span class="term">chance node</span>. <span class="term">Expectimax</span> takes the probability-weighted average there. With equal chances, A is worth (3 + 5)/2 = 4 and B is worth (2 + 9)/2 = 5.5, so the agent picks B. The model changed, so the answer changed.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-4-1-title">
+      <div class="plate-head"><h3 id="plate-4-1-title">Lab: one tree, three rules</h3><span class="plateno">Plate 4.1</span></div>
+      <div class="lab" data-lab="game"><p class="nojs">Worked result: minimax 3 (choose A), alpha-beta skips B's second leaf, expectimax 5.5 (choose B).</p></div>
+      <p class="notice"><b>What to notice.</b> Change B's second leaf to anything. Minimax and alpha-beta never change; expectimax does.</p>
+    </section>
+    <div class="quizset" role="group" aria-labelledby="quiz-4">
+      <div class="quizset-head"><h3 id="quiz-4">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 1 of 2</p><p class="q">Why can alpha-beta skip B's second leaf?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Because 9 is too large to be real.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">After seeing 2, MIN can hold B to at most 2, and A already gives 3.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Because leaves on the right are always pruned.</span></button></div><p class="why"><span class="why-label">Answer B.</span> No value of the second leaf can remove MIN's option of 2, so B can never beat A.</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 2 of 2</p><p class="q">If B's leaves 2 and 9 were coin flips instead of an opponent's choice, what is B worth?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">2</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">9</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">5.5</span></button></div><p class="why"><span class="why-label">Answer C.</span> A chance node averages: 0.5 × 2 + 0.5 × 9 = 5.5.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>Before searching harder, decide whether the next event is an opponent's move, a partner's move or a random outcome.</p></div>
+    <p class="cite">Course: L09, slides 1 to 62. Further reading: Berkeley CS188 minimax <a href="#r4">[R4]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-05" aria-labelledby="ch-05-title" data-sheet="Sheet 05 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">05</dd></div>
+      <div><dt>TALA's problem</dt><dd>Deliver now or charge first?</dd></div>
+      <div><dt>Methods</dt><dd>MDP, Bellman equation, value iteration, Q-learning</dd></div>
+    </dl>
+    <h2 id="ch-05-title">The next reward is not the whole reward</h2>
+    <div class="prose">
+      <p>TALA can make one more delivery now or spend time charging. Charging costs something now but may allow several deliveries later.</p>
+      <p>A <span class="term">Markov decision process</span> (MDP) has states S, actions A, transition probabilities T(s′ | s, a), rewards R(s, a, s′) and a discount factor γ. The <span class="term">Markov property</span> says the current state holds everything needed to predict the next one. A <span class="term">policy</span> π says what to do in each state.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Discounted return">
+      <p class="eq">G<sub>t</sub> = r<sub>t+1</sub> + γ r<sub>t+2</sub> + γ² r<sub>t+3</sub> + …</p>
+      <dl>
+        <dt>G<sub>t</sub></dt><dd>the return: total reward collected from time t onward</dd>
+        <dt>r<sub>t+1</sub></dt><dd>the reward received after the next action</dd>
+        <dt>γ</dt><dd>the discount factor, between 0 and 1: how much a reward one step later is worth now</dd>
+      </dl>
+    </div>
+    <div class="formula" role="group" aria-label="Bellman optimality equation">
+      <p class="eq">V*(s) = max<sub>a</sub> Σ<sub>s′</sub> T(s′ | s, a) [R(s, a, s′) + γ V*(s′)]</p>
+      <dl>
+        <dt>V*(s)</dt><dd>the best expected return achievable from state s</dd>
+        <dt>max<sub>a</sub></dt><dd>choose the action a with the largest result</dd>
+        <dt>Σ<sub>s′</sub> T(s′ | s, a)</dt><dd>average over the possible next states s′, weighted by their probability</dd>
+        <dt>R(s, a, s′)</dt><dd>the immediate reward for that transition</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>TALA is one step from delivery. The <em>shortcut</em> succeeds with probability 0.8 for +10, or fails with probability 0.2 for −5: 0.8 × 10 + 0.2 × (−5) = 7. <em>Charge</em> costs −1 now and leads to a state currently valued at 9: at γ = 0.9, −1 + 0.9 × 9 = 7.1. Charging wins by 0.1.</p>
+      <p>The final reward is paid on entering the terminal state, and the terminal state's own value is 0. Adding a terminal value of 10 after paying +10 would count the success twice.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-5-1-title">
+      <div class="plate-head"><h3 id="plate-5-1-title">Lab: the discount decides</h3><span class="plateno">Plate 5.1</span></div>
+      <div class="lab" data-lab="bellman"><p class="nojs">Worked result: at γ = 0.9, shortcut 7 and charge 7.1.</p></div>
+      <p class="notice"><b>What to notice.</b> Below γ ≈ 0.889 the future matters less and the shortcut wins.</p>
+    </section>
+    <div class="prose">
+      <h3>Planning with a model</h3>
+      <p><span class="term">Value iteration</span> applies the Bellman backup to every state again and again; in a finite discounted MDP it converges to V*. <span class="term">Policy iteration</span> alternates evaluating a fixed policy and improving it. Both need the transition and reward model.</p>
+      <h3>Learning without a model</h3>
+      <p><span class="term">Reinforcement learning</span> learns from interaction. It gets a reward signal, not the correct action. It must balance <span class="term">exploration</span>, trying alternatives, and <span class="term">exploitation</span>, using what looks best. An ε-greedy agent picks a random action with probability ε and the best-known action otherwise.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Q-learning update">
+      <p class="eq">Q(s, a) ← Q(s, a) + α [r + γ max<sub>a′</sub> Q(s′, a′) − Q(s, a)]</p>
+      <dl>
+        <dt>Q(s, a)</dt><dd>the current estimate of the return from taking a in s</dd>
+        <dt>α</dt><dd>the learning rate: how far the estimate moves toward the target</dd>
+        <dt>r</dt><dd>the reward just received</dd>
+        <dt>max<sub>a′</sub> Q(s′, a′)</dt><dd>the best estimate in the next state s′; zero if s′ is terminal</dd>
+        <dt>[ … ]</dt><dd>the TD error: target minus current estimate</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>If Q = 2, α = 0.5, r = 1, γ = 0.9 and the best next Q is 4, the target is 1 + 0.9 × 4 = 4.6 and the new estimate is 2 + 0.5 × (4.6 − 2) = 3.3.</p>
+      <p>Q-learning is <span class="term">off-policy</span>: its target uses the greedy next action even when exploration chose something else. SARSA is <span class="term">on-policy</span>: it uses the action actually taken. Monte Carlo methods wait for whole episodes. A deep Q-network replaces the table with a neural network; policy-gradient and actor-critic methods learn the policy directly.</p>
+      <p>The gridworld below has 3 rows and 4 columns. TALA starts at the bottom left. The delivery cell at the top right pays +10 and ends the episode. The wet floor below it pays −5 and also ends it. Every other move costs −1, and one cell is a wall. The random seed is fixed, so the same settings always give the same run.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-5-2-title">
+      <div class="plate-head"><h3 id="plate-5-2-title">Lab: Q-learning on a gridworld</h3><span class="plateno">Plate 5.2</span></div>
+      <div class="lab" data-lab="qlearn"><p class="nojs">Worked result: one update with Q = 2, α = 0.5, r = 1, γ = 0.9, best next Q = 4 gives 3.3. After 300 episodes the greedy policy reaches the goal in 5 moves.</p></div>
+      <p class="notice"><b>What to notice.</b> Set ε to 0 from a fresh table and the agent can get stuck repeating its first guess. A little exploration finds the route.</p>
+    </section>
+    <div class="quizset" role="group" aria-labelledby="quiz-5">
+      <div class="quizset-head"><h3 id="quiz-5">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 1 of 2</p><p class="q">Does a reward of +10 at the goal mean V(goal) = 10 in this book?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Yes, the value equals the reward.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">No. The +10 is paid on entry; the terminal value is 0.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">No, it is 10 × γ.</span></button></div><p class="why"><span class="why-label">Answer B.</span> Once the episode ends there are no future rewards, so V(terminal) = 0.</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 2 of 2</p><p class="q">Which symbol controls how often the agent tries a random action?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">α</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">γ</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">ε</span></button></div><p class="why"><span class="why-label">Answer C.</span> α sets the update size, γ discounts the future and ε sets the exploration rate.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>A policy must account for what an action makes possible later, not only what it pays now.</p></div>
+    <p class="cite">Course: L08, slides 1 to 74. Further reading: Sutton and Barto, <cite>Reinforcement Learning: An Introduction</cite>, chapters 3 to 6 and 13 <a href="#r5">[R5]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-06" aria-labelledby="ch-06-title" data-sheet="Sheet 06 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">06</dd></div>
+      <div><dt>TALA's problem</dt><dd>A motor alarm goes off</dd></div>
+      <div><dt>Methods</dt><dd>Bayes' theorem, Bayesian networks, sampling</dd></div>
+    </dl>
+    <h2 id="ch-06-title">A warning is evidence, not a verdict</h2>
+    <div class="prose">
+      <p>TALA's motor sensor raises an alarm. Does the motor need repair? That depends on how common faults are and how often the sensor alarms when nothing is wrong.</p>
+      <p>A <span class="term">random variable</span> is an uncertain quantity, such as motor condition. A <span class="term">distribution</span> gives its values probabilities that sum to one. A <span class="term">joint probability</span> P(A, B) covers both events. A <span class="term">conditional probability</span> P(A | B) = P(A, B) / P(B) restricts attention to cases where B happened.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Bayes theorem">
+      <p class="eq">P(Fault | Alarm) = P(Alarm | Fault) P(Fault) / P(Alarm)</p>
+      <dl>
+        <dt>P(Fault)</dt><dd>the prior: belief before the alarm</dd>
+        <dt>P(Alarm | Fault)</dt><dd>the likelihood: how often a faulty motor triggers the alarm</dd>
+        <dt>P(Alarm)</dt><dd>the evidence: how often the alarm sounds at all, faulty or not</dd>
+        <dt>P(Fault | Alarm)</dt><dd>the posterior: belief after the alarm</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>Suppose 2% of motors are faulty, the sensor alarms on 90% of faulty motors, and on 10% of healthy ones. Among 1,000 motors, 20 are faulty and 18 of them alarm. Of 980 healthy motors, 98 alarm. Only 18 of 116 alarms, about 15.5%, mean a fault. This is the <span class="term">base-rate effect</span>.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-6-1-title">
+      <div class="plate-head"><h3 id="plate-6-1-title">Lab: a thousand motors</h3><span class="plateno">Plate 6.1</span></div>
+      <div class="lab" data-lab="bayes"><p class="nojs">Worked result: prior 2%, sensitivity 90%, false alarms 10% gives 18 of 116, about 15.5%.</p></div>
+      <p class="notice"><b>What to notice.</b> Halve the false-alarm rate and the posterior nearly doubles. Raising sensitivity to 100% barely helps.</p>
+    </section>
+    <div class="formula" role="group" aria-label="Bayesian network factorization">
+      <p class="eq">P(X₁, …, Xₙ) = ∏ᵢ P(Xᵢ | Parents(Xᵢ))</p>
+      <dl>
+        <dt>Xᵢ</dt><dd>one variable, drawn as a node</dd>
+        <dt>Parents(Xᵢ)</dt><dd>the nodes with arrows into Xᵢ</dd>
+        <dt>∏ᵢ</dt><dd>multiply one small table per variable</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>A <span class="term">Bayesian network</span> is a directed acyclic graph with a conditional probability table for each node. For Rain R, Sprinkler S and WetGround W with arrows R to S, R to W and S to W, the joint is P(R) P(S | R) P(W | R, S). An arrow states a dependency in the model; it does not prove cause.</p>
+      <p>Let P(R) = 0.2, P(S | R) = 0.01, P(S | ¬R) = 0.4, and P(W) be 0.99, 0.8, 0.9 and 0 for (R, S), (R, ¬S), (¬R, S), (¬R, ¬S). Summing over the sprinkler: rain and wet is 0.2 × [0.01 × 0.99 + 0.99 × 0.8] = 0.16038, and no rain and wet is 0.8 × [0.4 × 0.9 + 0.6 × 0] = 0.288. So P(Rain | Wet) = 0.16038 / 0.44838 ≈ 35.8%. This is <span class="term">inference by enumeration</span>. <span class="term">Variable elimination</span> does the same sums in a smarter order.</p>
+      <p>In a chain A → B → C or a fork A ← B → C, observing B blocks the path. In a collider A → B ← C, observing B opens it: two causes of one effect become dependent. That is <span class="term">explaining away</span>.</p>
+      <p>When exact inference is too expensive, sample. <span class="term">Rejection sampling</span> throws away samples that contradict the evidence. <span class="term">Likelihood weighting</span> fixes the evidence and weights each sample. <span class="term">Gibbs sampling</span> resamples one hidden variable at a time.</p>
+    </div>
+    <div class="quizset" role="group" aria-labelledby="quiz-6">
+      <div class="quizset-head"><h3 id="quiz-6">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 1 of 2</p><p class="q">Why is a 90% true-alarm rate not a 90% chance of a fault after an alarm?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">The denominators differ: one counts faulty motors, the other counts all alarms.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Because the sensor is broken.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Because Bayes' theorem only works on large samples.</span></button></div><p class="why"><span class="why-label">Answer A.</span> P(Alarm | Fault) looks at 20 faulty motors. P(Fault | Alarm) looks at 116 alarms, most of them from the much larger healthy group.</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 2 of 2</p><p class="q">Two independent causes share one effect, and the effect is observed. What happens?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">The causes stay independent.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">They become dependent: evidence for one explains away the other.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Both become certain.</span></button></div><p class="why"><span class="why-label">Answer B.</span> Observing a collider opens the path between its parents.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>Evidence should move a belief in proportion to both its likelihood and the prior.</p></div>
+    <p class="cite">Course: L04, pages 3 to 61. Further reading: Berkeley CS188 Bayesian networks <a href="#r6">[R6]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-07" aria-labelledby="ch-07-title" data-sheet="Sheet 07 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">07</dd></div>
+      <div><dt>TALA's problem</dt><dd>Track a hidden motor condition over time</dd></div>
+      <div><dt>Methods</dt><dd>Filtering, prediction, smoothing, Viterbi</dd></div>
+    </dl>
+    <h2 id="ch-07-title">The machine's condition is hidden</h2>
+    <div class="prose">
+      <p>One alarm is ambiguous. A sequence has structure: a motor that was faulty a moment ago is probably still faulty. A <span class="term">hidden Markov model</span> (HMM) links a changing hidden state to readings we can see.</p>
+      <p>It has initial probabilities π, transition probabilities T and emission probabilities O. The next hidden state depends only on the current one, and each reading depends only on the current hidden state.</p>
+      <p>Hidden states are Healthy (H) and Faulty (F), with π = [0.8, 0.2] at time 1. A High vibration reading has P(High | H) = 0.2 and P(High | F) = 0.7; Low has 0.8 and 0.3.</p>
+    </div>
+    <table class="register table-narrow">
+      <caption>Transition probabilities: current state in rows, next state in columns</caption>
+      <thead><tr><th scope="col">Current</th><th scope="col">Healthy next</th><th scope="col">Faulty next</th></tr></thead>
+      <tbody><tr><th scope="row">Healthy</th><td class="num">0.9</td><td class="num">0.1</td></tr><tr><th scope="row">Faulty</th><td class="num">0.2</td><td class="num">0.8</td></tr></tbody>
+    </table>
+    <div class="formula" role="group" aria-label="HMM forward update">
+      <p class="eq">B<sub>t</sub>(x) ∝ P(e<sub>t</sub> | x) Σ<sub>x′</sub> T(x | x′) B<sub>t−1</sub>(x′)</p>
+      <dl>
+        <dt>B<sub>t</sub>(x)</dt><dd>the belief that the hidden state is x at time t</dd>
+        <dt>Σ T(x | x′) B<sub>t−1</sub>(x′)</dt><dd>predict: push yesterday's belief through the transitions</dd>
+        <dt>P(e<sub>t</sub> | x)</dt><dd>correct: weight by how likely today's reading is in state x</dd>
+        <dt>∝</dt><dd>proportional to: divide by the total so the beliefs sum to 1</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p><span class="term">Filtering</span> estimates the current state. A first High gives weights [0.8 × 0.2, 0.2 × 0.7] = [0.16, 0.14], so the belief is [0.5333, 0.4667]. Predicting: Healthy = 0.5333 × 0.9 + 0.4667 × 0.2 = 0.5733. A second High gives weights [0.11467, 0.29867], so P(Faulty) ≈ 72.3%. No transition is applied before the first reading.</p>
+      <p><span class="term">Prediction</span> without a new reading: 0.2774 × 0.1 + 0.7226 × 0.8 ≈ 60.6% faulty. <span class="term">Smoothing</span> revises the past with later evidence: after both High readings, the chance the motor was faulty at time 1 rises from 46.7% to 67.7%.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-7-1-title">
+      <div class="plate-head"><h3 id="plate-7-1-title">Lab: filtering a sequence of readings</h3><span class="plateno">Plate 7.1</span></div>
+      <div class="lab" data-lab="hmm"><p class="nojs">Worked result: High, High gives 72.3% faulty, 60.6% predicted next, 67.7% smoothed for time 1.</p></div>
+      <p class="notice"><b>What to notice.</b> One Low reading after two Highs pulls the belief down fast, but not to where it started.</p>
+    </section>
+    <div class="prose">
+      <h3>The best sequence is not a list of local guesses</h3>
+      <p><span class="term">Viterbi decoding</span> finds the single most likely whole sequence. For two High readings the joint scores are H,H = 0.8 × 0.2 × 0.9 × 0.2 = 0.0288, H,F = 0.0112, F,H = 0.0056 and F,F = 0.2 × 0.7 × 0.8 × 0.7 = 0.0784. Viterbi picks F,F. Its score is not a posterior; divided by the total 0.124 it is about 63.2%. Picking the best filtered state at each time would give H,F, a different answer.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Viterbi recursion">
+      <p class="eq">δ<sub>t</sub>(x) = P(e<sub>t</sub> | x) max<sub>x′</sub> T(x | x′) δ<sub>t−1</sub>(x′)</p>
+      <dl>
+        <dt>δ<sub>t</sub>(x)</dt><dd>the score of the best path that ends in state x at time t</dd>
+        <dt>max<sub>x′</sub></dt><dd>keep only the best predecessor; store it as a backpointer</dd>
+      </dl>
+    </div>
+    <section class="plate" aria-labelledby="plate-7-2-title">
+      <div class="plate-head"><h3 id="plate-7-2-title">Lab: a Viterbi trellis with backpointers</h3><span class="plateno">Plate 7.2</span></div>
+      <div class="lab" data-lab="viterbi"><p class="nojs">Worked result: δ₁ = [0.16, 0.14], δ₂ = [0.0288, 0.0784]; backtracking gives F, F.</p></div>
+      <p class="notice"><b>What to notice.</b> The forward algorithm sums over predecessors; Viterbi takes the maximum. One small change answers a different question.</p>
+    </section>
+    <div class="quizset" role="group" aria-labelledby="quiz-7">
+      <div class="quizset-head"><h3 id="quiz-7">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 1 of 2</p><p class="q">Does a 72.3% faulty belief mean the sensor observed "Faulty"?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Yes.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Yes, with 72.3% accuracy.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">No. It observed High vibration; Faulty is inferred.</span></button></div><p class="why"><span class="why-label">Answer C.</span> Observations and hidden states are different things. The belief is computed from the readings and the model.</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 2 of 2</p><p class="q">Which task uses evidence from after time t to estimate the state at time t?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Smoothing</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Filtering</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Prediction</span></button></div><p class="why"><span class="why-label">Answer A.</span> Smoothing combines a forward message with a backward message from later readings.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>Keep observations, state beliefs and whole-path explanations separate.</p></div>
+    <p class="cite">Course: L03, pages 8 to 50. Further reading: Berkeley CS188 HMMs <a href="#r7">[R7]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-08" aria-labelledby="ch-08-title" data-sheet="Sheet 08 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">08</dd></div>
+      <div><dt>TALA's problem</dt><dd>Delete a request that is probably spam?</dd></div>
+      <div><dt>Methods</dt><dd>Expected utility, expected loss, value of information</dd></div>
+    </dl>
+    <h2 id="ch-08-title">A prediction still needs a decision</h2>
+    <div class="prose">
+      <p>TALA's message filter says a delivery request is 80% likely to be spam. Deleting it sounds obvious, until we learn that losing a real request costs far more than reviewing a spam one.</p>
+      <p>A probability predicts. <span class="term">Utility</span> values an outcome. <span class="term">Maximum expected utility</span> picks the action with the largest probability-weighted utility; minimizing expected loss is the same idea.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Expected utility">
+      <p class="eq">EU(a) = Σ<sub>s</sub> P(s | evidence) U(a, s)</p>
+      <dl>
+        <dt>a</dt><dd>an action, such as deliver, review or delete</dd>
+        <dt>s</dt><dd>a possible true state, such as spam or legitimate</dd>
+        <dt>P(s | evidence)</dt><dd>how likely that state is, given what we know</dd>
+        <dt>U(a, s)</dt><dd>how good it is to take a when the truth is s</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>Deleting a real message costs 100 points; delivering spam costs 5. With p = P(spam), delete costs 100(1 − p) and deliver costs 5p. Delete only when 100(1 − p) &lt; 5p, that is p &gt; 100/105 ≈ 95.24%. At p = 0.8, delete costs 20 and deliver costs 4, so deliver wins even though spam is more likely.</p>
+      <p>Add a review that always costs 2 and resolves the message. Deliver is best below p = 0.4, review between 0.4 and 0.98, delete above 0.98. At the boundaries the actions tie.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-8-1-title">
+      <div class="plate-head"><h3 id="plate-8-1-title">Lab: expected loss for three actions</h3><span class="plateno">Plate 8.1</span></div>
+      <div class="lab" data-lab="utility"><p class="nojs">Worked result: at p = 0.8 deliver costs 4, review 2, delete 20. Review is best.</p></div>
+      <p class="notice"><b>What to notice.</b> The most likely class is spam, but the cheapest action is review. The costs choose, not the label.</p>
+    </section>
+    <div class="prose">
+      <h3>What makes preferences coherent?</h3>
+      <p>Expected-utility theory assumes preferences are complete, transitive, continuous and independent of a shared background lottery. Cyclic preferences invite a money pump: a sequence of trades, each accepted, that leaves you where you started with less. Positive affine rescaling U′ = aU + b with a &gt; 0 keeps the ranking of actions; other changes may not.</p>
+      <h3>Information has a price</h3>
+      <p>The <span class="term">value of perfect information</span> is the expected value when the truth is revealed before acting, minus the best value without it. At p = 0.8 with review available, the best expected loss is 2. Perfect information would make it 0, so it is worth 2 loss points. Paying 3 for it would be worse than reviewing.</p>
+      <p>Imperfect information can help too. The best value without a forecast is 70 utility points. A forecast gives two signals with probabilities 0.6 and 0.4, and the best values after them are 90 and 50. With the forecast: 0.6 × 90 + 0.4 × 50 = 74 points, so the forecast is worth 4 points before its cost. Calling it 74% would be a unit error.</p>
+    </div>
+    <div class="quizset" role="group" aria-labelledby="quiz-8">
+      <div class="quizset-head"><h3 id="quiz-8">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 1 of 2</p><p class="q">Must the action for the most probable class be the best action?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Yes, always.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">No. Different mistakes cost different amounts.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Only when p is above 50%.</span></button></div><p class="why"><span class="why-label">Answer B.</span> At p = 0.8 the two-action example prefers deliver: expected loss 4 against 20.</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 2 of 2</p><p class="q">What is the delete threshold with only deliver and delete?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">p &gt; 100/105 ≈ 95.24%</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">p &gt; 50%</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">p &gt; 80%</span></button></div><p class="why"><span class="why-label">Answer A.</span> Set 100(1 − p) = 5p, so 100 = 105p and p = 100/105.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>A model's probability is one input to a decision, not the decision itself.</p></div>
+    <p class="cite">Course: L02, pages 2 to 36; L07, slides 4 to 23. Further reading: Berkeley CS188 value of perfect information <a href="#r8">[R8]</a>. The lecture's 74-point example is kept in utility units here.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-09" aria-labelledby="ch-09-title" data-sheet="Sheet 09 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">09</dd></div>
+      <div><dt>TALA's problem</dt><dd>Learn the spam rule from examples</dd></div>
+      <div><dt>Methods</dt><dd>MLE and MAP, Naive Bayes, regression, trees, k-means, metrics</dd></div>
+    </dl>
+    <h2 id="ch-09-title">Let the data change the rule</h2>
+    <div class="prose">
+      <p>A fixed rule can mark every message containing "urgent" as spam, and it will also reject real urgent messages. <span class="term">Machine learning</span> fits a model from examples.</p>
+      <p>A <span class="term">feature</span> is an input measurement, a <span class="term">label</span> is the target in supervised learning, and <span class="term">parameters</span> are learned values. A <span class="term">hyperparameter</span>, such as tree depth, is chosen around the training. <span class="term">Supervised learning</span> uses labels: classification predicts a category, regression a number. <span class="term">Unsupervised learning</span> finds structure without labels.</p>
+      <h3>Estimate a parameter</h3>
+      <p>With coin flips H, H, H, T, <span class="term">maximum likelihood</span> (MLE) picks the θ that makes the data most likely: 3/4. <span class="term">MAP</span> also uses a prior. A Beta(2, 2) prior plus these flips gives a Beta(5, 3) posterior, whose mode is (5 − 1)/(5 + 3 − 2) = 2/3 and whose mean is 5/8.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Naive Bayes class score">
+      <p class="eq">score(c) = P(c) ∏ᵢ P(xᵢ | c)</p>
+      <dl>
+        <dt>c</dt><dd>a class, such as spam or legitimate</dd>
+        <dt>P(c)</dt><dd>the prior for the class</dd>
+        <dt>P(xᵢ | c)</dt><dd>how likely feature i is in that class, assuming features are independent given the class</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>Spam prior 0.4 with two clues each at 0.75 gives 0.4 × 0.75 × 0.75 = 0.225. Legitimate prior 0.6 with clue likelihoods 1/6 and 2/6 gives 0.0333. Normalized, P(spam) ≈ 87.1%. Correlated clues get counted twice. <span class="term">Laplace smoothing</span> adds pseudocounts so an unseen feature does not force a zero.</p>
+      <h3>Lines and probabilities</h3>
+      <p><span class="term">Linear regression</span> predicts ŷ = wᵀx + b and is often trained on mean squared error, MSE = (1/n) Σ (yᵢ − ŷᵢ)². For points (1, 8), (2, 11), (3, 15), (4, 18), the line 3x + 5 has MSE 0.5; least squares gives 3.4x + 4.5 with MSE 0.05. <span class="term">Logistic regression</span> passes a linear score through the sigmoid σ(z) = 1/(1 + e<sup>−z</sup>) to get a probability; despite its name it is a classifier.</p>
+      <p>A <span class="term">decision tree</span> splits examples by feature tests, aiming for purer groups measured by entropy −Σ p log₂ p or Gini impurity 1 − Σ p². Deep trees memorize. A <span class="term">random forest</span> averages many trees trained on bootstrap samples.</p>
+      <h3>Clusters without labels</h3>
+      <p><span class="term">K-means</span> repeats two steps: assign each point to its nearest centroid, then move each centroid to the mean of its points. With points (1, 1), (1.5, 2), (3, 4), (5, 7), (3.5, 5), (4.5, 5), (3.5, 4.5) and starting centroids (1, 1) and (5, 7), the first update gives (1.83, 2.33) and (4.13, 5.38). Point (3, 4) then switches cluster, and the second update gives (1.25, 1.5) and (3.9, 5.1), where it stops. The final within-cluster squared distance is 8.525. PCA is different: it reduces dimensions, it does not cluster.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-9-1-title">
+      <div class="plate-head"><h3 id="plate-9-1-title">Lab: k-means, one step at a time</h3><span class="plateno">Plate 9.1</span></div>
+      <div class="lab" data-lab="kmeans"><p class="nojs">Worked result: centroids move to (1.83, 2.33) and (4.13, 5.38), then to (1.25, 1.5) and (3.9, 5.1).</p></div>
+      <p class="notice"><b>What to notice.</b> Add a far outlier and watch one centroid get dragged toward it. K-means minimizes squared distance, so outliers pull hard.</p>
+    </section>
+    <div class="prose">
+      <h3>Test the model honestly</h3>
+      <p>A training set fits parameters, a validation set chooses settings and thresholds, and a test set estimates final performance. Fit scaling and feature selection on training data only. <span class="term">Overfitting</span> learns noise. <span class="term">Data leakage</span> lets future information into training. <span class="term">Distribution shift</span> means new data differ from old.</p>
+      <p>Take spam as positive: TP = 8, FP = 12, FN = 2, TN = 978 out of 1,000. Accuracy (TP + TN)/N = 98.6%, but precision TP/(TP + FP) = 40% and recall TP/(TP + FN) = 80%. F1 = 2PR/(P + R) ≈ 53.3%. A model that calls everything legitimate scores 99% accuracy and 0% recall.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-9-2-title">
+      <div class="plate-head"><h3 id="plate-9-2-title">Lab: the accuracy trap</h3><span class="plateno">Plate 9.2</span></div>
+      <div class="lab" data-lab="metrics"><p class="nojs">Worked result: TP 8, FP 12, FN 2, TN 978 gives accuracy 98.6%, precision 40%, recall 80%, F1 53.3%.</p></div>
+      <p class="notice"><b>What to notice.</b> Press the "always legitimate" baseline. Accuracy goes up while the filter catches nothing.</p>
+    </section>
+    <div class="quizset" role="group" aria-labelledby="quiz-9">
+      <div class="quizset-head"><h3 id="quiz-9">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 1 of 2</p><p class="q">Why is 98.6% accuracy not enough to approve this spam filter?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">98.6% is below the legal minimum.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Accuracy cannot be computed with four numbers.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Class imbalance hides the errors: 12 of 20 flagged messages are real.</span></button></div><p class="why"><span class="why-label">Answer C.</span> Precision and the cost of each mistake show what the headline number hides.</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 2 of 2</p><p class="q">With a Beta(2, 2) prior and H, H, H, T, what is the MAP estimate?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">3/4</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">2/3</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">5/8</span></button></div><p class="why"><span class="why-label">Answer B.</span> The posterior is Beta(5, 3). Its mode is (5 − 1)/(5 + 3 − 2) = 4/6 = 2/3. 3/4 is the MLE and 5/8 the mean.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>Good learning is not just fitting a curve. Choose a representation, estimate it from fair data and test the decision it will support.</p></div>
+    <p class="cite">Course: L02, pages 38 to 105; L07, slides 24 to 66. Further reading: Berkeley CS188 Naive Bayes <a href="#r9">[R9]</a> and scikit-learn guidance <a href="#r10">[R10]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-10" aria-labelledby="ch-10-title" data-sheet="Sheet 10 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">10</dd></div>
+      <div><dt>TALA's problem</dt><dd>Is the book held securely?</dd></div>
+      <div><dt>Methods</dt><dd>Perceptron, XOR, MLP, backpropagation, CNN</dd></div>
+    </dl>
+    <h2 id="ch-10-title">A boundary can learn to bend</h2>
+    <div class="prose">
+      <p>TALA's gripper senses contact and slip. We want to know if the book is held securely. A <span class="term">perceptron</span> multiplies inputs by weights, adds a bias and applies a threshold.</p>
+    </div>
+    <div class="formula" role="group" aria-label="Perceptron">
+      <p class="eq">z = w₁x₁ + w₂x₂ + b; ŷ = 1 if z ≥ 0, otherwise 0</p>
+      <dl>
+        <dt>x₁, x₂</dt><dd>inputs: contact and slip, scaled to 0 to 1</dd>
+        <dt>w₁, w₂</dt><dd>weights: how much each input counts</dd>
+        <dt>b</dt><dd>the bias: shifts the boundary</dd>
+        <dt>ŷ</dt><dd>the predicted class: 1 secure, 0 insecure</dd>
+      </dl>
+    </div>
+    <div class="prose">
+      <p>With w₁ = 2, w₂ = −3 and b = −0.5, contact 0.8 and slip 0.2 give z = 2 × 0.8 − 3 × 0.2 − 0.5 = 0.5: secure. Slip 0.8 gives z = −1.3: insecure. The line 2x₁ − 3x₂ − 0.5 = 0 is the <span class="term">decision boundary</span>.</p>
+      <p>The update rule is w ← w + η(y − ŷ)x and b ← b + η(y − ŷ). For x = [0.8, 0.8] with label 1 but prediction 0, and η = 0.1, the weights become [2.08, −2.92] and the bias −0.4.</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-10-1-title">
+      <div class="plate-head"><h3 id="plate-10-1-title">Lab: move the boundary</h3><span class="plateno">Plate 10.1</span></div>
+      <div class="lab" data-lab="perceptron"><p class="nojs">Worked result: contact 0.8, slip 0.2 gives z = 0.5, secure.</p></div>
+      <p class="notice"><b>What to notice.</b> The bias slides the line without turning it. The weights turn it.</p>
+    </section>
+    <div class="prose">
+      <h3>The XOR wall</h3>
+      <p>The perceptron convergence theorem assumes the classes can be split by a line. XOR cannot: (0, 0) and (1, 1) are class 0, (0, 1) and (1, 0) are class 1. No single line separates them, so training never settles.</p>
+      <p>A <span class="term">multilayer perceptron</span> adds hidden units. One hidden unit computes OR, step(x₁ + x₂ − 0.5); another computes AND, step(x₁ + x₂ − 1.5); the output computes step(h₁ − h₂ − 0.5), which is "OR but not AND", exactly XOR. The hidden layer changes the representation, and in the new one a line is enough.</p>
+      <p>Without a nonlinear <span class="term">activation function</span>, stacked layers collapse into one affine map, so depth alone cannot solve XOR. ReLU is max(0, z); sigmoid maps to (0, 1); tanh maps to (−1, 1).</p>
+    </div>
+    <section class="plate" aria-labelledby="plate-10-2-title">
+      <div class="plate-head"><h3 id="plate-10-2-title">Lab: XOR, one layer against two</h3><span class="plateno">Plate 10.2</span></div>
+      <div class="lab" data-lab="xor"><p class="nojs">Worked result: the perceptron always misclassifies at least one XOR point. The hand-set two-layer net outputs 0, 1, 1, 0, and a trained 2-2-1 sigmoid net learns the same.</p></div>
+      <p class="notice"><b>What to notice.</b> Drag the line anywhere: at least one point is always wrong. Train the small network and its loss falls toward zero.</p>
+    </section>
+    <div class="prose">
+      <h3>Learning from an error signal</h3>
+      <p>A <span class="term">forward pass</span> computes the output, a <span class="term">loss</span> measures the mismatch, <span class="term">backpropagation</span> uses the chain rule to get each parameter's gradient, and an <span class="term">optimizer</span> such as gradient descent changes the parameters. Backpropagation computes gradients; it is not the optimizer. An epoch is one pass over the data; a mini-batch is a subset used for one update.</p>
+      <p><span class="term">Regularization</span> penalizes complexity, <span class="term">early stopping</span> halts when validation error rises, and <span class="term">dropout</span> randomly drops activations during training. None of them fixes wrong labels.</p>
+      <h3>When the input is an image</h3>
+      <p>A <span class="term">convolutional neural network</span> (CNN) slides small learned filters across the image with shared weights. Early layers react to edges; later layers combine them into larger patterns. Pooling or strides shrink the map, and a final head outputs the class. Recognizing a book does not mean understanding it, and lighting or background changes can break it.</p>
+    </div>
+    <div class="quizset" role="group" aria-labelledby="quiz-10">
+      <div class="quizset-head"><h3 id="quiz-10">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 1 of 2</p><p class="q">Would ten layers with no nonlinear activation solve a problem one affine layer cannot?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">No. Their composition is still affine.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Yes, depth always helps.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Only with a large learning rate.</span></button></div><p class="why"><span class="why-label">Answer A.</span> Matrix after matrix is still one matrix. The network needs a nonlinearity.</p></div>
+      <div class="quiz" data-answer="1"><p class="qnum num">Question 2 of 2</p><p class="q">Is backpropagation the same as gradient descent?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Yes, two names for one thing.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">No. Backpropagation computes gradients; gradient descent uses them.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">No. Backpropagation is only for CNNs.</span></button></div><p class="why"><span class="why-label">Answer B.</span> The chain rule gives the gradients. The optimizer decides how to step.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>A neural network learns a representation and a rule together. Its flexibility makes evaluation more important, not less.</p></div>
+    <p class="cite">Course: L01, pages 7 to 42. Further reading: Berkeley CS188 perceptrons <a href="#r11">[R11]</a> and Goodfellow, Bengio and Courville, <cite>Deep Learning</cite>, chapter 6 <a href="#r12">[R12]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="ch-11" aria-labelledby="ch-11-title" data-sheet="Sheet 11 of 11">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Sheet</dt><dd class="num">11</dd></div>
+      <div><dt>TALA's problem</dt><dd>Work safely among people</dd></div>
+      <div><dt>Ideas</dt><dd>Law No. 230-VIII, risk and autonomy, transparency, data</dd></div>
+    </dl>
+    <h2 id="ch-11-title">The model leaves the notebook</h2>
+    <div class="prose">
+      <p>TALA now works around people. Its camera can capture faces. Its language interface can make a confident mistake. Its operator needs to know who maintains it, who can stop it and what happens when it fails.</p>
+      <p>A test score measures behaviour on a dataset. It does not decide whether a real deployment treats people, data and accountability well.</p>
+      <h3>Kazakhstan's framework</h3>
+      <p>The legal lecture centres on Kazakhstan's Law No. 230-VIII of 17 November 2025, "On Artificial Intelligence". The official consolidated text is the reference for exact wording; Adilet labels its English version an unofficial translation. This chapter describes concepts at course level and does not decide the legal status of any real system.</p>
+      <p>The framework separates <span class="term">risk level</span> from <span class="term">autonomy level</span>. Risk is about possible impact in the context of use; autonomy is about how independently the system acts. The lecture describes minimal, medium and high risk, and low, medium and high autonomy. A simple rule in a high-stakes setting can need more care than a clever model used for something trivial.</p>
+    </div>
+    <table class="register table-wide">
+      <caption>Risk and autonomy are separate axes</caption>
+      <thead><tr><th scope="col">TALA function</th><th scope="col">Autonomy</th><th scope="col">Why risk is not the same thing</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Choosing a corridor</th><td>High</td><td>It acts alone, but a wrong turn mostly costs time.</td></tr>
+        <tr><th scope="row">Camera near people</th><td>Medium</td><td>It records identifiable faces, so data handling matters.</td></tr>
+        <tr><th scope="row">Suggesting who gets priority delivery</th><td>Low, a person approves</td><td>Unfair rules could still affect people repeatedly.</td></tr>
+      </tbody>
+    </table>
+    <div class="prose">
+      <h3>Make the system legible</h3>
+      <p>The law addresses transparency in AI use and synthetic results. A person should be able to tell when an AI system is involved and understand its limits. The legal definition of a synthetic result must be read precisely, not stretched to every generated sentence. For TALA: say it is automated, say what it cannot determine, offer a way to reach a person and keep a record of important actions.</p>
+      <h3>The data do not disappear inside the model</h3>
+      <p>Personal-data protection, information security and intellectual-property law still apply next to the AI law. Taking a camera image, sending it to a remote service and keeping it for training are three different operations, each needing a purpose and a basis. Running locally reduces some transfers but does not prove compliance. For TALA: keep camera footage briefly, restrict access to logs and document any third-party processing.</p>
+      <h3>Authorship, audits and ownership</h3>
+      <p>The lecture highlights human creative contribution in copyright. Generated output is not automatically evidence of authorship. The law discusses AI audits, including for trusted-system lists; do not assume every system needs the same audit. Name an owner for maintenance, for monitoring errors and for handling complaints.</p>
+      <p>A <span class="term">bias</span> is a systematic tendency that can come from data, labels or the objective. A <span class="term">hallucination</span> is a fluent, unsupported or false output presented as fact. The course also introduces the Digital Qazaqstan strategy through 2029; a strategy states targets, not achieved results.</p>
+    </div>
+    <div class="quizset" role="group" aria-labelledby="quiz-11">
+      <div class="quizset-head"><h3 id="quiz-11">Check your reasoning</h3><p class="score num" aria-live="polite">2 questions</p></div>
+      <div class="quiz" data-answer="2"><p class="qnum num">Question 1 of 2</p><p class="q">A model runs locally and scores 97% accuracy. Is it ready to rank job applicants?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">Yes, local and accurate is enough.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Yes, if the accuracy is above 95%.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Not yet. Data, unequal errors, transparency, oversight and the law are still open.</span></button></div><p class="why"><span class="why-label">Answer C.</span> Locality and an aggregate score leave most deployment questions unanswered.</p></div>
+      <div class="quiz" data-answer="0"><p class="qnum num">Question 2 of 2</p><p class="q">Are risk level and autonomy level the same thing?</p><div class="opts"><button class="opt" type="button"><span class="letter">A</span><span class="opt-text">No. Risk is about impact in context; autonomy is about independence.</span></button><button class="opt" type="button"><span class="letter">B</span><span class="opt-text">Yes, more autonomy always means more risk.</span></button><button class="opt" type="button"><span class="letter">C</span><span class="opt-text">Yes, both describe the model architecture.</span></button></div><p class="why"><span class="why-label">Answer A.</span> They are separate axes. A low-autonomy tool can still be high risk.</p></div>
+      <button class="btn btn--sm quiz-reset" type="button" hidden>Try these again</button>
+    </div>
+    <div class="carry"><span class="label">Carry forward</span><p>Before deployment, connect the objective, the evidence, the people affected, the data and the people accountable. The model is one part of that system.</p></div>
+    <p class="cite">Course: L10, slides 2 to 22. Primary references: the Kazakhstan AI law <a href="#r13">[R13]</a>, the Digital Qazaqstan announcement <a href="#r14">[R14]</a> and the action plan <a href="#r15">[R15]</a>.</p>
+  </div>
+</section>
+
+<section class="view sheet" id="glossary" aria-labelledby="glossary-title" data-sheet="Glossary">
+  <div class="wrap">
+    <h2 id="glossary-title">The words, without the fog</h2>
+    <div class="field">
+      <label for="gloss-filter">Find a term</label>
+      <input id="gloss-filter" type="search" autocomplete="off" spellcheck="false">
+    </div>
+    <p class="label" id="gloss-empty" hidden>No matching term. Try a shorter word.</p>
+    <dl class="glossary" id="gloss-list">
+      <div><dt>Activation function</dt><dd>A function applied to a neuron's score. Nonlinear ones let layered networks represent nonlinear patterns.</dd></div>
+      <div><dt>Admissible heuristic</dt><dd>An estimate that never exceeds the true cheapest remaining cost to a goal.</dd></div>
+      <div><dt>Agent</dt><dd>A system that receives observations and acts on an environment.</dd></div>
+      <div><dt>Alpha-beta pruning</dt><dd>Skipping game-tree branches whose bounds prove they cannot change the minimax choice.</dd></div>
+      <div><dt>Backpointer</dt><dd>In Viterbi decoding, a record of the best previous state, used to rebuild the best path.</dd></div>
+      <div><dt>Backpropagation</dt><dd>Computing parameter gradients by applying the chain rule backward through a network.</dd></div>
+      <div><dt>Bayesian network</dt><dd>A directed acyclic graph that factorizes a joint distribution into parent-conditioned tables.</dd></div>
+      <div><dt>Bellman backup</dt><dd>Updating a value with expected immediate reward plus discounted next-state value.</dd></div>
+      <div><dt>Bias</dt><dd>In a neuron, an added parameter. In data or systems, a systematic tendency that distorts results.</dd></div>
+      <div><dt>Calibration</dt><dd>Agreement between predicted probabilities and observed frequencies.</dd></div>
+      <div><dt>Centroid</dt><dd>The mean point of a cluster in k-means.</dd></div>
+      <div><dt>Classification</dt><dd>Predicting a discrete label, such as spam or legitimate.</dd></div>
+      <div><dt>Conditional independence</dt><dd>Two variables tell nothing more about each other once a third is known.</dd></div>
+      <div><dt>Consistent heuristic</dt><dd>A heuristic with h(n) ≤ c(n, n′) + h(n′) on every edge and zero at the goal.</dd></div>
+      <div><dt>Data leakage</dt><dd>Information entering training or evaluation that would not be available at prediction time.</dd></div>
+      <div><dt>Discount factor</dt><dd>The weight γ applied per step to future rewards.</dd></div>
+      <div><dt>Emission probability</dt><dd>In an HMM, the probability of a reading given a hidden state.</dd></div>
+      <div><dt>Epsilon-greedy</dt><dd>Choose a random action with probability ε, otherwise the best-known action.</dd></div>
+      <div><dt>Expected utility</dt><dd>A probability-weighted average of the values of an action's possible outcomes.</dd></div>
+      <div><dt>Expectimax</dt><dd>Game-tree search that averages at chance nodes instead of minimizing.</dd></div>
+      <div><dt>Exploration</dt><dd>Choosing actions partly to learn about alternatives.</dd></div>
+      <div><dt>F1 score</dt><dd>The harmonic mean of precision and recall, 2PR/(P + R).</dd></div>
+      <div><dt>Feature</dt><dd>An input measurement used by a model.</dd></div>
+      <div><dt>Filtering</dt><dd>Estimating the current hidden state from readings so far.</dd></div>
+      <div><dt>Frontier</dt><dd>Search nodes found but not yet expanded.</dd></div>
+      <div><dt>Generalization</dt><dd>Performance on new examples, not the ones used for training.</dd></div>
+      <div><dt>Genetic algorithm</dt><dd>Local search over a population using selection, crossover and mutation.</dd></div>
+      <div><dt>Gradient</dt><dd>A vector of derivatives showing how a function changes with its parameters.</dd></div>
+      <div><dt>Heuristic</dt><dd>A problem-specific estimate used to guide search.</dd></div>
+      <div><dt>Hyperparameter</dt><dd>A setting of the model or training, often chosen with validation data.</dd></div>
+      <div><dt>Learning rate</dt><dd>The step size of an update: η in gradient descent, α in Q-learning.</dd></div>
+      <div><dt>Likelihood</dt><dd>The probability of observed data as a function of a model or parameter.</dd></div>
+      <div><dt>Local optimum</dt><dd>A candidate no worse than its neighbours that may still be worse than a distant one.</dd></div>
+      <div><dt>Loss</dt><dd>A numerical penalty; smaller is better.</dd></div>
+      <div><dt>MAP</dt><dd>Maximum a posteriori: the parameter that maximizes the posterior.</dd></div>
+      <div><dt>Markov property</dt><dd>The present state holds all history needed to predict the next state.</dd></div>
+      <div><dt>MDP</dt><dd>Markov decision process: states, actions, transition probabilities and rewards.</dd></div>
+      <div><dt>Minimax</dt><dd>Choosing the move with the best guaranteed value against an optimal opponent.</dd></div>
+      <div><dt>MLE</dt><dd>Maximum likelihood estimation: the parameter that makes the data most likely.</dd></div>
+      <div><dt>Overfitting</dt><dd>Fitting training-specific noise that does not generalize.</dd></div>
+      <div><dt>Perceptron</dt><dd>A linear threshold classifier with a mistake-driven update.</dd></div>
+      <div><dt>Policy</dt><dd>A rule for choosing an action in each state.</dd></div>
+      <div><dt>Posterior</dt><dd>A probability after updating on evidence.</dd></div>
+      <div><dt>Precision</dt><dd>The fraction of predicted positives that are truly positive.</dd></div>
+      <div><dt>Prior</dt><dd>A probability before the current evidence.</dd></div>
+      <div><dt>Q-value</dt><dd>Expected return from taking an action in a state and acting well afterward.</dd></div>
+      <div><dt>Recall</dt><dd>The fraction of true positives that the model finds.</dd></div>
+      <div><dt>Regression</dt><dd>Predicting a number.</dd></div>
+      <div><dt>Regularization</dt><dd>A penalty or constraint that favours simpler solutions.</dd></div>
+      <div><dt>Return</dt><dd>Accumulated, usually discounted, reward over time.</dd></div>
+      <div><dt>Reward</dt><dd>Immediate feedback after a transition.</dd></div>
+      <div><dt>Simulated annealing</dt><dd>Local search that accepts worse moves with a probability that falls as temperature drops.</dd></div>
+      <div><dt>Smoothing</dt><dd>Estimating a past hidden state using later readings too.</dd></div>
+      <div><dt>State</dt><dd>A description of the situation relevant to a decision.</dd></div>
+      <div><dt>TD error</dt><dd>The gap between a bootstrapped target and the current estimate.</dd></div>
+      <div><dt>Utility</dt><dd>A number representing how much an outcome is preferred.</dd></div>
+      <div><dt>Validation set</dt><dd>Data for choosing settings, kept apart from the final test set.</dd></div>
+      <div><dt>Viterbi decoding</dt><dd>Finding the most likely whole hidden-state sequence in an HMM.</dd></div>
+      <div><dt>XOR</dt><dd>Exclusive or: true when exactly one input is true. Not linearly separable.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="view sheet" id="sources" aria-labelledby="sources-title" data-sheet="Sources">
+  <div class="wrap">
+    <h2 id="sources-title">Where the explanations come from</h2>
+    <div class="prose"><p>The lectures set the scope. The prose, the campus story, the figures and the labs are an original synthesis. Page numbers are PDF pages; slide numbers are slide order. Course slides are not redistributed here.</p></div>
+    <table class="register table-wide">
+      <caption>Course material used</caption>
+      <thead><tr><th scope="col">ID</th><th scope="col">Lecture</th><th scope="col">Used in</th></tr></thead>
+      <tbody>
+        <tr><td class="num">L01</td><td>Perceptrons and Neural Networks</td><td>Chapter 10</td></tr>
+        <tr><td class="num">L02</td><td>Rational Decisions and Classical Machine Learning</td><td>Chapters 8 and 9</td></tr>
+        <tr><td class="num">L03</td><td>Hidden Markov Models</td><td>Chapter 7</td></tr>
+        <tr><td class="num">L04</td><td>Probability and Bayesian Networks</td><td>Chapter 6</td></tr>
+        <tr><td class="num">L05</td><td>Local Search Algorithms</td><td>Chapter 3</td></tr>
+        <tr><td class="num">L06</td><td>Uninformed Search, A* Search and Heuristics</td><td>Chapter 2</td></tr>
+        <tr><td class="num">L07</td><td>Lecture 8, Rational Decisions and Classical ML</td><td>Chapters 8 and 9</td></tr>
+        <tr><td class="num">L08</td><td>MDP and Reinforcement Learning</td><td>Chapter 5</td></tr>
+        <tr><td class="num">L09</td><td>Adversarial Search and Game Trees</td><td>Chapter 4</td></tr>
+        <tr><td class="num">L10</td><td>AI Legal Framework</td><td>Chapter 11</td></tr>
+        <tr><td class="num">L11</td><td>Week 1, Introduction, Agents and Environments</td><td>Chapter 1</td></tr>
+      </tbody>
+    </table>
+    <h3 class="sub">Academic and primary references</h3>
+    <ol class="refs">
+      <li id="r1">[R1] Stuart Russell and Peter Norvig. <cite>Artificial Intelligence: A Modern Approach</cite>, 4th edition, Pearson, 2020. <a href="https://aima.cs.berkeley.edu/">aima.cs.berkeley.edu</a></li>
+      <li id="r2">[R2] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/search/informed.html">Informed Search</a>.</li>
+      <li id="r3">[R3] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/search/local.html">Local Search</a>.</li>
+      <li id="r4">[R4] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/games/minimax.html">Minimax</a>.</li>
+      <li id="r5">[R5] Richard S. Sutton and Andrew G. Barto. <cite>Reinforcement Learning: An Introduction</cite>, 2nd edition, MIT Press, 2018. <a href="https://incompleteideas.net/book/the-book-2nd.html">Book site</a>. Also <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/rl/mfl.html">Berkeley model-free learning</a>.</li>
+      <li id="r6">[R6] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/representation.html">Bayesian network representation</a>, <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/elimination.html">variable elimination</a> and <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/bayes-nets/approximate.html">approximate inference</a>.</li>
+      <li id="r7">[R7] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/hmms/hmm.html">Hidden Markov Models</a>.</li>
+      <li id="r8">[R8] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/vpis/vpi.html">Value of Perfect Information</a>.</li>
+      <li id="r9">[R9] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/ml/naive-bayes.html">Naive Bayes</a>.</li>
+      <li id="r10">[R10] scikit-learn. <a href="https://scikit-learn.org/stable/common_pitfalls.html">Common pitfalls and recommended practices</a> and <a href="https://scikit-learn.org/stable/modules/model_evaluation.html">Model evaluation</a>.</li>
+      <li id="r11">[R11] UC Berkeley CS188. <a href="https://inst.eecs.berkeley.edu/~cs188/textbook/ml/perceptrons.html">Perceptrons</a>.</li>
+      <li id="r12">[R12] Ian Goodfellow, Yoshua Bengio and Aaron Courville. <cite>Deep Learning</cite>, MIT Press, 2016, <a href="https://www.deeplearningbook.org/contents/mlp.html">chapter 6</a>.</li>
+      <li id="r13">[R13] Republic of Kazakhstan. Law No. 230-VIII of 17 November 2025, "On Artificial Intelligence". <a href="https://old.adilet.zan.kz/rus/docs/Z2500000230">Official consolidated Russian text</a>; <a href="https://old.adilet.zan.kz/eng/docs/Z2500000230">unofficial English translation</a>.</li>
+      <li id="r14">[R14] Government of Kazakhstan. <a href="https://www.gov.kz/org/maidd/press/news/details/1238140?lang=en">Digital Qazaqstan national strategy announcement</a>.</li>
+      <li id="r15">[R15] Prime Minister of Kazakhstan. <a href="https://primeminister.kz/en/news/government-approves-action-plan-to-implement-digital-qazaqstan-national-strategy-through-2029-31815">Action plan for Digital Qazaqstan through 2029</a>.</li>
+    </ol>
+    <h3 class="sub">Corrections kept from the first edition</h3>
+    <div class="prose">
+      <p>The 74-point expected-utility example stays in utility units, correcting a percentage label in L02 page 36. The search plate uses a new consistent graph rather than the goal mismatch in L06 page 15. Episodic MDP examples pay the terminal reward on entry and give the terminal state value 0. HMM updates follow the lecture's first-reading timeline.</p>
+      <p>New in this edition: worked examples for gradient descent, k-means, the gridworld and the XOR network. Every number in the text is checked by an automated test in the source files.</p>
+      <p>Typography: Chakra Petch, IBM Plex Sans and IBM Plex Mono, under the SIL Open Font License, bundled in the fonts folder. No stock imagery is used.</p>
+    </div>
+  </div>
+</section>
+
+<section class="view sheet" id="disclosure" aria-labelledby="disclosure-title" data-sheet="Disclosure">
+  <div class="wrap">
+    <h2 id="disclosure-title">How AI tools were used</h2>
+    <div class="prose">
+      <p>The assignment asks for an honest note on generative AI. This is it.</p>
+      <p><span class="term">First edition.</span> OpenAI Codex assisted with extracting the lecture material, drafting explanations, building the interactive book and producing the presentation assets.</p>
+      <p><span class="term">This edition.</span> Claude Code, an AI coding assistant by Anthropic, assisted with drafting and editing the text, writing the code for the site and the labs, the visual design, and automated checks: the number tests, HTML validation and layout screenshots.</p>
+      <p>The course content, the choice of topics, the TALA story and the worked examples come from the first edition and the course lectures. The automated tests confirm that the code reproduces the numbers in the text; they do not replace a person's review.</p>
+      <p class="todo" id="author-review">Author's own review note: to be added by Miras after reviewing the book.</p>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<nav class="pager wrap" aria-label="Previous and next section" id="pager"></nav>
+
+<footer class="foot">
+  <div class="wrap">
+    <dl class="titleblock titleblock--wide">
+      <div><dt>Drawn by</dt><dd>Miras Yessenaly</dd></div>
+      <div><dt>Project</dt><dd>The Decision Atlas, an AI Fundamentals book</dd></div>
+      <div><dt>Status</dt><dd>Individual submission, 2026</dd></div>
+    </dl>
+    <p class="foot-note">Every example is invented teaching data. Sources are listed in <a href="#sources">Sources</a>; AI assistance is described in the <a href="#disclosure">disclosure</a>.</p>
+  </div>
+</footer>
+
+<script src="js/logic.js"></script>
+<script src="js/labs.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
