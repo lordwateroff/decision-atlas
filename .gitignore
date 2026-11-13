@@ -1,0 +1,10 @@
+node_modules/
+dist/
+shots/
+preview/
+source/
+src_zip/
+scratch_text.txt
+.claude/
+.DS_Store
+tools/.htmlvalidate.json

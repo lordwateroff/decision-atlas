@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2026-11-13",
+    "shape": "Map / Diagram",
+    "theme": "blueprint (by request): whiteprint light, cyanotype dark",
+    "axes": "light and mid / geometric-sans / neutral",
+    "nav": "N6 masthead bar with sheet number",
+    "footer": "title block",
+    "signature": "campus map as the contents page, route fills as chapters are read",
+    "stamp": "Hallmark · shape: Map / Diagram · theme: blueprint · genre: modern-minimal · deal: manual (user approved Blueprint over dealt Hum, Darkroom, Atelier)",
+    "waived": ["20 CSS stamp comment: user forbids code comments, stamp kept here and in DESIGN.md", "49 multi-line quiz answer buttons are answer cards, not CTAs", "58 word count: the page is a full textbook", "F1 straight quotes: chosen house style"],
+    "prompt": "The Decision Atlas, interactive AI Fundamentals e-book"
+  },
+  {
+    "date": "2026-11-06",
+    "shape": "Long Document",
+    "theme": "almanac",
+    "nav": "N3 Side-rail",
+    "footer": "Ft4 Colophon",
+    "prompt": "The Decision Atlas first edition"
+  }
+]
